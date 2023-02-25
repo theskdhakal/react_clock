@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.wrapper {
+  background: linear-gradient(to right, skyblue, lightgreen);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.wrapper .clock {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  border: 3px solid black;
+  position: relative;
+  /* background: url("assets/wall.jpg") center center; */
+  background-size: cover;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper .clock .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.5rem;
+}
+.wrapper .clock .number1 {
+  --rotation: 30deg;
+}
+.wrapper .clock .number2 {
+  --rotation: 60deg;
+}
+.wrapper .clock .number3 {
+  --rotation: 90deg;
+}
+.wrapper .clock .number4 {
+  --rotation: 120deg;
+}
+.wrapper .clock .number5 {
+  --rotation: 150deg;
+}
+.wrapper .clock .number6 {
+  --rotation: 180deg;
+}
+.wrapper .clock .number7 {
+  --rotation: 210deg;
+}
+.wrapper .clock .number8 {
+  --rotation: 240deg;
+}
+.wrapper .clock .number9 {
+  --rotation: 270deg;
+}
+.wrapper .clock .number10 {
+  --rotation: 300deg;
+}
+.wrapper .clock .number11 {
+  --rotation: 330deg;
+}
+.wrapper .clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  background-color: black;
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 10;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.wrapper .clock .second {
+  width: 3px;
+  height: 45%;
+  background-color: red;
+}
+.wrapper .clock .minute {
+  width: 7px;
+  height: 40%;
+  background-color: rgb(5, 5, 5);
+}
+.wrapper .clock .hour {
+  width: 10px;
+  height: 35%;
+  background-color: rgb(5, 5, 5);
+}
+.wrapper .clock::after {
+  content: "";
+  position: absolute;
+  background: radial-gradient(
+    rgb(255, 254, 254) 5%,
+    rgb(159, 161, 159) 15%,
+    rgb(20, 20, 20) 60%
+  );
+  z-index: 12;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 }
